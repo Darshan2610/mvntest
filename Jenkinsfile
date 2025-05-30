@@ -8,7 +8,7 @@ pipeline {
 	stages{
 	    stage('Checkout'){
 	        steps{
-			 'https://github.com/Darshan2610/mvntest.git'
+			git branch: 'master', url:'https://github.com/Darshan2610/mvntest.git'
 		}
 	    }
 	    
