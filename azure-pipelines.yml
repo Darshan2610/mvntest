@@ -16,5 +16,5 @@ steps:
 - script: mvn clean install
   displayName: 'Run a multi-line script'
 
-- script: java -jar target/mvn01-1.0-SNAPSHOT.jar
+- script: java -jar target/mvntest-1.0-SNAPSHOT.jar
   displayName: 'Running jar'
