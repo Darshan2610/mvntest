@@ -1,0 +1,45 @@
+pipeline {
+	agent any
+	
+	tools{
+		maven 'maven'
+	}
+	
+	stages{
+	    stage('Checkout'){
+	        steps{
+			 'https://github.com/Darshan2610/mvntest/git'
+		}
+	    }
+	    
+	    stage('Build'){
+	        steps{
+	            sh 'mvn clean package'
+	        }
+	    }
+	    
+	    stage('Test'){
+	        steps{
+	            sh 'mvn test'
+	        }
+	    }
+	    
+	    stage("Run Application"){
+	    	steps{
+	    	    sh 'java -jar target/mvntest-1.0-SNAPSHOT.jar'
+	    	}
+	    }
+		
+	}
+	
+	post{
+	    success{
+	        echo 'BUild sucessful'
+	    }
+	    failure{
+	    	echo 'Build failed'
+	    }
+	}
+	
+
+}
